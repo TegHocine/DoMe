@@ -50,7 +50,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "eslint --ext [.json,.js] --fix"
+      "yarn eslint --ext [.json,.js] --fix"
     ],
     "*.{js,jsx,json,css}": [
       "yarn prettier --write"
