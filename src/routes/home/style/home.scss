@@ -1,0 +1,49 @@
+@import '../../../helper/style/colors-fonts/colors-fonts.scss';
+
+.home {
+  font-family: $font-family;
+  width: 100%;
+  height: 100vh;
+  background-color: $darker-main;
+  color: $white-color;
+
+  .home-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    width: 100%;
+
+    .home-input-wrapper {
+      position: relative;
+      background-color: $main-color;
+      height: 3.5rem;
+      display: flex;
+      justify-content: center;
+      place-items: center;
+      width: inherit;
+      max-width: 400px;
+      border-radius: 0.5rem;
+
+      .home-add-icon {
+        font-size: 1.25rem;
+        border: 1px solid $lighter-main;
+        border-radius: 99999px;
+        margin: 0 1rem;
+        &:hover {
+          background-color: $lighter-main;
+        }
+      }
+
+      .home-input {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        color: $white-color;
+        height: 2rem;
+        width: 90%;
+      }
+    }
+  }
+}

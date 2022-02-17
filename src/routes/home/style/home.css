@@ -1,1 +1,60 @@
-/* No CSS */ /*# sourceMappingURL=home.css.map */
+.home {
+  font-family: 'Montserrat';
+  width: 100%;
+  height: 100vh;
+  background-color: #0d1117;
+  color: #fff;
+}
+
+.home .home-wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  place-items: center;
+  width: 100%;
+}
+
+.home .home-wrapper .home-input-wrapper {
+  position: relative;
+  background-color: #161b22;
+  height: 3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  place-items: center;
+  width: inherit;
+  max-width: 400px;
+  border-radius: 0.5rem;
+}
+
+.home .home-wrapper .home-input-wrapper .home-add-icon {
+  font-size: 1.25rem;
+  border: 1px solid #343941;
+  border-radius: 99999px;
+  margin: 0 1rem;
+}
+
+.home .home-wrapper .home-input-wrapper .home-add-icon:hover {
+  background-color: #343941;
+}
+
+.home .home-wrapper .home-input-wrapper .home-input {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  color: #fff;
+  height: 2rem;
+  width: 90%;
+}
+/*# sourceMappingURL=home.css.map */
