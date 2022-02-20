@@ -16,14 +16,13 @@
     width: 100%;
 
     .home-input-wrapper {
-      position: relative;
       background-color: $main-color;
       height: 3.5rem;
       display: flex;
       justify-content: center;
       place-items: center;
       width: inherit;
-      max-width: 400px;
+      max-width: 550px;
       border-radius: 0.5rem;
 
       .home-add-icon {
@@ -43,6 +42,53 @@
         color: $white-color;
         height: 2rem;
         width: 90%;
+      }
+    }
+
+    //todo item style
+    .home-todoItem {
+      margin-top: 1rem;
+      width: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      place-items: center;
+
+      .home-todoItem-wrapper {
+        background-color: $main-color;
+        border-radius: 0.5rem;
+        width: inherit;
+        max-width: 550px;
+
+        .todoItem {
+          height: 3.5rem;
+          display: flex;
+          justify-content: center;
+          place-items: center;
+          width: 100%;
+          border-bottom: 1px solid $dark-orange;
+        }
+
+        .home-todoItem-footer {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.7rem;
+          padding: 1rem;
+          color: $light-orange;
+          opacity: 0.6;
+
+          .home-todoItem-footer-filter-wrapper {
+            margin-left: 1rem;
+            .footer-filter-item {
+              cursor: pointer;
+              margin: 0 0.3rem;
+
+              &:hover {
+                color: $dark-orange;
+              }
+            }
+          }
+        }
       }
     }
   }

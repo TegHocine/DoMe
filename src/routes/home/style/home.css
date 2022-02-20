@@ -23,7 +23,6 @@
 }
 
 .home .home-wrapper .home-input-wrapper {
-  position: relative;
   background-color: #161b22;
   height: 3.5rem;
   display: -webkit-box;
@@ -34,7 +33,7 @@
   justify-content: center;
   place-items: center;
   width: inherit;
-  max-width: 400px;
+  max-width: 550px;
   border-radius: 0.5rem;
 }
 
@@ -56,5 +55,88 @@
   color: #fff;
   height: 2rem;
   width: 90%;
+}
+
+.home .home-wrapper .home-todoItem {
+  margin-top: 1rem;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  place-items: center;
+}
+
+.home .home-wrapper .home-todoItem .home-todoItem-wrapper {
+  background-color: #161b22;
+  border-radius: 0.5rem;
+  width: inherit;
+  max-width: 550px;
+}
+
+.home .home-wrapper .home-todoItem .home-todoItem-wrapper .todoItem {
+  height: 3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  place-items: center;
+  width: 100%;
+  border-bottom: 1px solid #a64942;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  padding: 1rem;
+  color: #ff7844;
+  opacity: 0.6;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-footer
+  .home-todoItem-footer-filter-wrapper {
+  margin-left: 1rem;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-footer
+  .home-todoItem-footer-filter-wrapper
+  .footer-filter-item {
+  cursor: pointer;
+  margin: 0 0.3rem;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-footer
+  .home-todoItem-footer-filter-wrapper
+  .footer-filter-item:hover {
+  color: #a64942;
 }
 /*# sourceMappingURL=home.css.map */
