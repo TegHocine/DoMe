@@ -5,12 +5,12 @@ import TodoItem from './TodoItem'
 import './style/home.css'
 
 export default function home() {
-  const { todo, onTodoChange, listTodos, addTodo } = HomeLogic()
+  const { todo, onTodoChange, listTodos, addTodo, onClear } = HomeLogic()
 
   return (
     <div className='home'>
       <div className='home-wrapper'>
-        <div className='home-title'>DO-ME</div>
+        <h1 className='home-title'>DO-ME</h1>
         <div className='home-input-wrapper'>
           <BsPlus className='home-add-icon' onClick={addTodo} />
           <input
@@ -29,13 +29,19 @@ export default function home() {
               ))}
             {listTodos.length !== 0 && (
               <div className='home-todoItem-footer'>
-                <div>todo left</div>
+                <div> {listTodos.length} todo left</div>
                 <div className='home-todoItem-footer-filter-wrapper'>
                   <span className='footer-filter-item'>All</span>
                   <span className='footer-filter-item'>Active</span>
                   <span className='footer-filter-item'>Completed</span>
                 </div>
-                <div>Clear completed</div>
+                <button
+                  className='todoItem-clear-btn'
+                  type='button'
+                  onClick={onClear}
+                >
+                  Clear completed
+                </button>
               </div>
             )}
           </div>

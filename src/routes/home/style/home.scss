@@ -15,6 +15,14 @@
     place-items: center;
     width: 100%;
 
+    .home-title {
+      width: inherit;
+      max-width: 550px;
+      justify-self: start;
+      margin-bottom: 1rem;
+      margin-left: 1rem;
+    }
+
     .home-input-wrapper {
       background-color: $main-color;
       height: 3.5rem;
@@ -75,7 +83,7 @@
           font-size: 0.7rem;
           padding: 1rem;
           color: $light-orange;
-          opacity: 0.6;
+          opacity: 0.8;
 
           .home-todoItem-footer-filter-wrapper {
             margin-left: 1rem;
@@ -86,6 +94,18 @@
               &:hover {
                 color: $dark-orange;
               }
+            }
+          }
+
+          .todoItem-clear-btn {
+            cursor: pointer;
+            background: inherit;
+            border: none;
+            color: inherit;
+            opacity: 0.8;
+
+            &:hover {
+              color: $dark-orange;
             }
           }
         }

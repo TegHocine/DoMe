@@ -9,11 +9,16 @@ const HomeLogic = () => {
   }
 
   const addTodo = () => {
-    setListTodos([todo, ...listTodos])
-    setTodo('')
+    if (todo.length !== 0) {
+      setListTodos([todo, ...listTodos])
+      setTodo('')
+    }
+  }
+  const onClear = () => {
+    setListTodos([])
   }
 
-  return { todo, onTodoChange, listTodos, addTodo }
+  return { todo, onTodoChange, listTodos, addTodo, onClear }
 }
 
 export default HomeLogic
