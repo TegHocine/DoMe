@@ -1,6 +1,6 @@
 import { BsPlus } from 'react-icons/bs'
+import { FaRegCircle, FaRegCheckCircle } from 'react-icons/fa'
 import HomeLogic from './HomeLogic'
-import TodoItem from './TodoItem'
 
 import './style/home.css'
 
@@ -25,8 +25,18 @@ export default function home() {
           <div className='home-todoItem-wrapper'>
             {listTodos &&
               listTodos.map((listTodo) => (
-                <TodoItem key={listTodo.length + 1} todo={listTodo} />
+                <div className='todoItem'>
+                  <div className='todoItem-wrapper'>
+                    {listTodo.completed ? (
+                      <FaRegCheckCircle className='todoItem-checkbox' />
+                    ) : (
+                      <FaRegCircle className='todoItem-checkbox' />
+                    )}
+                    <span className='todoItem-text'>{listTodo.todo}</span>
+                  </div>
+                </div>
               ))}
+
             {listTodos.length !== 0 && (
               <div className='home-todoItem-footer'>
                 <div> {listTodos.length} todo left</div>

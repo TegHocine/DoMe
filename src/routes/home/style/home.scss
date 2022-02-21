@@ -69,12 +69,27 @@
         max-width: 550px;
 
         .todoItem {
-          height: 3.5rem;
+          padding: 1rem 0;
           display: flex;
-          justify-content: center;
           place-items: center;
           width: 100%;
           border-bottom: 1px solid $dark-orange;
+
+          .todoItem-wrapper {
+            padding: 0 1rem;
+            display: flex;
+            place-items: center;
+
+            .todoItem-checkbox {
+              min-width: 20px;
+              color: $lighter-main;
+              font-size: 1.2rem;
+              margin-right: 1rem;
+            }
+            .todoItem-text {
+              word-break: break-word;
+            }
+          }
         }
 
         .home-todoItem-footer {
@@ -86,7 +101,7 @@
           opacity: 0.8;
 
           .home-todoItem-footer-filter-wrapper {
-            margin-left: 1rem;
+            padding: 0 1rem;
             .footer-filter-item {
               cursor: pointer;
               margin: 0 0.3rem;
