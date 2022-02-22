@@ -54,10 +54,10 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "yarn eslint --ext [.json,.js] --fix"
+      "eslint --ext [.json,.js] --fix"
     ],
     "*.{js,jsx,json,css}": [
-      "yarn prettier --write"
+      "prettier --write"
     ]
   }
 }

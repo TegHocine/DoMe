@@ -25,7 +25,7 @@ export default function home() {
           <div className='home-todoItem-wrapper'>
             {listTodos &&
               listTodos.map((listTodo) => (
-                <div className='todoItem'>
+                <div key={listTodo.todo.length + 3} className='todoItem'>
                   <div className='todoItem-wrapper'>
                     {listTodo.completed ? (
                       <FaRegCheckCircle className='todoItem-checkbox' />
