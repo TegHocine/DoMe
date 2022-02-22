@@ -5,7 +5,15 @@ import HomeLogic from './HomeLogic'
 import './style/home.css'
 
 export default function home() {
-  const { todo, onTodoChange, listTodos, addTodo, onClear } = HomeLogic()
+  const {
+    todo,
+    onTodoChange,
+    listTodos,
+    addTodo,
+    onClear,
+    onComplete,
+    onNotComplete,
+  } = HomeLogic()
 
   return (
     <div className='home'>
@@ -23,19 +31,27 @@ export default function home() {
         </div>
         <div className='home-todoItem'>
           <div className='home-todoItem-wrapper'>
-            {listTodos &&
-              listTodos.map((listTodo) => (
-                <div key={listTodo.todo.length + 3} className='todoItem'>
-                  <div className='todoItem-wrapper'>
-                    {listTodo.completed ? (
-                      <FaRegCheckCircle className='todoItem-checkbox' />
-                    ) : (
-                      <FaRegCircle className='todoItem-checkbox' />
-                    )}
-                    <span className='todoItem-text'>{listTodo.todo}</span>
+            <div className='home-todoItem-container'>
+              {listTodos &&
+                listTodos.map((listTodo) => (
+                  <div key={listTodo.id} className='todoItem'>
+                    <div className='todoItem-wrapper'>
+                      {listTodo.completed ? (
+                        <FaRegCheckCircle
+                          className='todoItem-completed'
+                          onClick={() => onNotComplete(listTodo.id)}
+                        />
+                      ) : (
+                        <FaRegCircle
+                          className='todoItem-not-completed'
+                          onClick={() => onComplete(listTodo.id)}
+                        />
+                      )}
+                      <span className='todoItem-text'>{listTodo.todo}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+            </div>
 
             {listTodos.length !== 0 && (
               <div className='home-todoItem-footer'>

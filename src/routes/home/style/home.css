@@ -89,7 +89,33 @@
   max-width: 550px;
 }
 
-.home .home-wrapper .home-todoItem .home-todoItem-wrapper .todoItem {
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container {
+  width: inherit;
+  height: inherit;
+  max-height: 350px;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container::-webkit-scrollbar {
+  display: none;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container
+  .todoItem {
   padding: 1rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,6 +129,7 @@
   .home-wrapper
   .home-todoItem
   .home-todoItem-wrapper
+  .home-todoItem-container
   .todoItem
   .todoItem-wrapper {
   padding: 0 1rem;
@@ -116,11 +143,19 @@
   .home-wrapper
   .home-todoItem
   .home-todoItem-wrapper
+  .home-todoItem-container
   .todoItem
   .todoItem-wrapper
-  .todoItem-checkbox {
+  .todoItem-completed,
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container
+  .todoItem
+  .todoItem-wrapper
+  .todoItem-not-completed {
   min-width: 20px;
-  color: #343941;
   font-size: 1.2rem;
   margin-right: 1rem;
 }
@@ -129,6 +164,51 @@
   .home-wrapper
   .home-todoItem
   .home-todoItem-wrapper
+  .home-todoItem-container
+  .todoItem
+  .todoItem-wrapper
+  .todoItem-completed {
+  color: #097969;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container
+  .todoItem
+  .todoItem-wrapper
+  .todoItem-completed:hover {
+  color: #023020;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container
+  .todoItem
+  .todoItem-wrapper
+  .todoItem-not-completed {
+  color: #ff7844;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container
+  .todoItem
+  .todoItem-wrapper
+  .todoItem-not-completed:hover {
+  color: #a64942;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container
   .todoItem
   .todoItem-wrapper
   .todoItem-text {
