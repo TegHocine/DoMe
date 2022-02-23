@@ -219,6 +219,17 @@
   .home-wrapper
   .home-todoItem
   .home-todoItem-wrapper
+  .home-todoItem-container
+  .todoItem
+  .todoItem-wrapper
+  .inactive {
+  display: none;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
   .home-todoItem-footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -259,6 +270,17 @@
   .home-todoItem-footer
   .home-todoItem-footer-filter-wrapper
   .footer-filter-item:hover {
+  color: #a64942;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-footer
+  .home-todoItem-footer-filter-wrapper
+  .footer-filter-item:focus {
+  border-bottom: 1px solid #a64942;
   color: #a64942;
 }
 

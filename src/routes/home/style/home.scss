@@ -110,8 +110,13 @@
                   color: $dark-orange;
                 }
               }
+
               .todoItem-text {
                 word-break: break-word;
+              }
+
+              .inactive {
+                display: none;
               }
             }
           }
@@ -132,6 +137,10 @@
               margin: 0 0.3rem;
 
               &:hover {
+                color: $dark-orange;
+              }
+              &:focus {
+                border-bottom: 1px solid $dark-orange;
                 color: $dark-orange;
               }
             }

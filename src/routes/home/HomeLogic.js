@@ -1,21 +1,32 @@
 import { useState, useEffect } from 'react'
 import { db } from '../../firebase-config'
-import { collection, addDoc, getDocs, updateDoc, doc } from 'firebase/firestore'
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  updateDoc,
+  deleteDoc,
+  doc,
+  serverTimestamp,
+  orderBy,
+  query,
+} from 'firebase/firestore'
 
 const HomeLogic = () => {
   const [todo, setTodo] = useState('')
   const [listTodos, setListTodos] = useState([])
+  const [filterTodos, setFilterTodos] = useState([])
 
-  const todoCollectionRef = collection(db, 'todos')
-
-  // get list todos from firebase
-  const getTodos = async () => {
-    const data = await getDocs(todoCollectionRef)
-    setListTodos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-  }
+  const todoColRef = collection(db, 'todos')
+  const q = query(todoColRef, orderBy('timestamp', 'desc'))
 
   useEffect(() => {
-    getTodos()
+    onSnapshot(q, (snapshot) => {
+      setListTodos(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      setFilterTodos(
+        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })),
+      )
+    })
   }, [])
 
   // controle the input
@@ -26,9 +37,15 @@ const HomeLogic = () => {
   // add a todo to the list
   const addTodo = async () => {
     if (todo.length !== 0) {
-      setListTodos([{ todo, completed: false }, ...listTodos])
-      await addDoc(todoCollectionRef, { todo, completed: false })
+      setListTodos([
+        { id: 1, todo, completed: false, date: new Date() },
+        ...listTodos,
+      ])
+      setFilterTodos(listTodos)
+      const todoToAdd = { todo, completed: false, timestamp: serverTimestamp() }
+      await addDoc(todoColRef, todoToAdd)
       setTodo('')
+      // getTodos()
     }
   }
 
@@ -44,6 +61,7 @@ const HomeLogic = () => {
         }
       }),
     )
+    setFilterTodos(listTodos)
     await updateDoc(todoDoc, { completed: true })
   }
 
@@ -59,22 +77,71 @@ const HomeLogic = () => {
         }
       }),
     )
+    setFilterTodos(listTodos)
     await updateDoc(todoDoc, { completed: false })
   }
 
-  // clear list of todo's
+  // clear list of completed todo's
   const onClear = () => {
-    setListTodos([])
+    // return all todo's that have completed === false
+    const toClear = listTodos.filter((listTodo) => listTodo.completed === false)
+
+    // return all todo's that have completed === true
+    const toDelete = listTodos.filter((listTodo) => listTodo.completed === true)
+
+    // loop to delete all the todo's that are completed from firebase
+    toDelete.forEach(async (toDelete) => {
+      const todoDoc = doc(db, 'todos', toDelete.id)
+      await deleteDoc(todoDoc)
+    })
+
+    setListTodos(toClear)
+    setFilterTodos(listTodos)
+  }
+
+  // filter todo's by :all :completed :active
+  const onFilter = (arg) => {
+    const completed = listTodos.filter(
+      (listTodo) => listTodo.completed === true,
+    )
+    const active = listTodos.filter((listTodo) => listTodo.completed === false)
+
+    if (arg === 'all') {
+      setFilterTodos(listTodos)
+    }
+    if (arg === 'completed') {
+      completed.length !== 0
+        ? setFilterTodos(completed)
+        : setFilterTodos([
+            {
+              id: 1,
+              todo: 'You have not completed a todo yet :(',
+              class: 'inactive',
+            },
+          ])
+    }
+    if (arg === 'active') {
+      active.length !== 0
+        ? setFilterTodos(active)
+        : setFilterTodos([
+            {
+              id: 1,
+              todo: "You have completed all your todo 's :)",
+              class: 'inactive',
+            },
+          ])
+    }
   }
 
   return {
     todo,
     onTodoChange,
-    listTodos,
+    filterTodos,
     addTodo,
     onClear,
     onComplete,
     onNotComplete,
+    onFilter,
   }
 }
 

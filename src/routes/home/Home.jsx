@@ -8,11 +8,12 @@ export default function home() {
   const {
     todo,
     onTodoChange,
-    listTodos,
+    filterTodos,
     addTodo,
     onClear,
     onComplete,
     onNotComplete,
+    onFilter,
   } = HomeLogic()
 
   return (
@@ -32,34 +33,54 @@ export default function home() {
         <div className='home-todoItem'>
           <div className='home-todoItem-wrapper'>
             <div className='home-todoItem-container'>
-              {listTodos &&
-                listTodos.map((listTodo) => (
+              {filterTodos &&
+                filterTodos.map((listTodo) => (
                   <div key={listTodo.id} className='todoItem'>
                     <div className='todoItem-wrapper'>
-                      {listTodo.completed ? (
-                        <FaRegCheckCircle
-                          className='todoItem-completed'
-                          onClick={() => onNotComplete(listTodo.id)}
-                        />
-                      ) : (
-                        <FaRegCircle
-                          className='todoItem-not-completed'
-                          onClick={() => onComplete(listTodo.id)}
-                        />
-                      )}
+                      <span className={`${listTodo.class && listTodo.class}`}>
+                        {listTodo.completed ? (
+                          <FaRegCheckCircle
+                            className='todoItem-completed'
+                            onClick={() => onNotComplete(listTodo.id)}
+                          />
+                        ) : (
+                          <FaRegCircle
+                            className='todoItem-not-completed'
+                            onClick={() => onComplete(listTodo.id)}
+                          />
+                        )}
+                      </span>
                       <span className='todoItem-text'>{listTodo.todo}</span>
                     </div>
                   </div>
                 ))}
             </div>
 
-            {listTodos.length !== 0 && (
+            {filterTodos.length !== 0 && (
               <div className='home-todoItem-footer'>
-                <div> {listTodos.length} todo left</div>
+                <div> {filterTodos.length} todo left</div>
                 <div className='home-todoItem-footer-filter-wrapper'>
-                  <span className='footer-filter-item'>All</span>
-                  <span className='footer-filter-item'>Active</span>
-                  <span className='footer-filter-item'>Completed</span>
+                  <span
+                    tabIndex='0'
+                    className='footer-filter-item active'
+                    onClick={() => onFilter('all')}
+                  >
+                    All
+                  </span>
+                  <span
+                    tabIndex='0'
+                    className='footer-filter-item active'
+                    onClick={() => onFilter('active')}
+                  >
+                    Active
+                  </span>
+                  <span
+                    tabIndex='0'
+                    className='footer-filter-item active'
+                    onClick={() => onFilter('completed')}
+                  >
+                    Completed
+                  </span>
                 </div>
                 <button
                   className='todoItem-clear-btn'
