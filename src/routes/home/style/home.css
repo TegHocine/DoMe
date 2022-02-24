@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh;
   background-color: #0d1117;
-  color: #fff;
+  color: white;
 }
 
 .home .home-wrapper {
@@ -61,7 +61,7 @@
   background-color: inherit;
   border: none;
   outline: none;
-  color: #fff;
+  color: white;
   height: 2rem;
   width: 90%;
 }
@@ -213,6 +213,18 @@
   .todoItem-wrapper
   .todoItem-text {
   word-break: break-word;
+}
+
+.home
+  .home-wrapper
+  .home-todoItem
+  .home-todoItem-wrapper
+  .home-todoItem-container
+  .todoItem
+  .todoItem-wrapper
+  .completed {
+  opacity: 0.6;
+  text-decoration: line-through;
 }
 
 .home

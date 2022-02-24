@@ -56,7 +56,15 @@ export default function home() {
                             />
                           )}
                         </span>
-                        <span className='todoItem-text'>{listTodo.todo}</span>
+                        <span
+                          className={`todoItem-text ${
+                            listTodo.completed === true
+                              ? `completed`
+                              : console.log(listTodo.completed)
+                          }`}
+                        >
+                          {listTodo.todo}
+                        </span>
                       </div>
                     </div>
                   ))}
@@ -64,7 +72,14 @@ export default function home() {
 
               {filterTodos.length !== 0 && (
                 <div className='home-todoItem-footer'>
-                  <div> {filterTodos.length} todo left</div>
+                  <div>
+                    {
+                      filterTodos.filter(
+                        (filterTodo) => filterTodo.completed === false,
+                      ).length
+                    }{' '}
+                    todo left
+                  </div>
                   <div className='home-todoItem-footer-filter-wrapper'>
                     <span
                       tabIndex='0'

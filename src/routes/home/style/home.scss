@@ -114,6 +114,10 @@
               .todoItem-text {
                 word-break: break-word;
               }
+              .completed {
+                opacity: 0.6;
+                text-decoration: line-through;
+              }
 
               .inactive {
                 display: none;
