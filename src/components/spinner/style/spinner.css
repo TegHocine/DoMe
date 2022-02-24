@@ -1,0 +1,50 @@
+.spinner-outer-circle {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border: 4px solid #210f0d;
+  border-radius: 999999px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.spinner-outer-circle .spinner-inner-circle {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 4px solid transparent;
+  border-top-color: #ff7844;
+  border-radius: 999999px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=spinner.css.map */

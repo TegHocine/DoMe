@@ -16,6 +16,7 @@ const HomeLogic = () => {
   const [todo, setTodo] = useState('')
   const [listTodos, setListTodos] = useState([])
   const [filterTodos, setFilterTodos] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const todoColRef = collection(db, 'todos')
   const q = query(todoColRef, orderBy('timestamp', 'desc'))
@@ -27,6 +28,7 @@ const HomeLogic = () => {
         snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })),
       )
     })
+    setLoading(false)
   }, [])
 
   // controle the input
@@ -141,6 +143,7 @@ const HomeLogic = () => {
     onComplete,
     onNotComplete,
     onFilter,
+    loading,
   }
 }
 

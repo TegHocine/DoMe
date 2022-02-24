@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "colors-fonts.scss"
+        "colors.scss"
     ],
     "names": [],
-    "file": "colors-fonts.css"
+    "file": "colors.css"
 }

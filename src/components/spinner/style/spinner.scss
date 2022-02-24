@@ -1,0 +1,30 @@
+@import '../../../helper/style/colors-fonts/colors.scss';
+
+.spinner-outer-circle {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border: 4px solid $dark-orange/5;
+  border-radius: 999999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .spinner-inner-circle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 4px solid transparent;
+    border-top-color: $light-orange;
+    border-radius: 999999px;
+    animation: spin 1s linear infinite;
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
