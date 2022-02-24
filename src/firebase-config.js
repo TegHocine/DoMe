@@ -8,7 +8,8 @@ let storageBucket
 let messagingSenderId
 let appId
 
-if (process.env.NODE_ENV !== 'production') {
+console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV !== 'Production') {
   apiKey = process.env.REACT_APP_API_KEY
   authDomain = process.env.REACT_APP_AUTH_DOMAIN
   projectId = process.env.REACT_APP_PROJECT_ID
