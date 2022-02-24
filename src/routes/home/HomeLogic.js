@@ -45,7 +45,6 @@ const HomeLogic = () => {
       const todoToAdd = { todo, completed: false, timestamp: serverTimestamp() }
       await addDoc(todoColRef, todoToAdd)
       setTodo('')
-      // getTodos()
     }
   }
 
