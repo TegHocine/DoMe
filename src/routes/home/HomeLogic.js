@@ -27,8 +27,8 @@ const HomeLogic = () => {
       setFilterTodos(
         snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })),
       )
+      setLoading(false)
     })
-    setLoading(false)
   }, [])
 
   // controle the input
